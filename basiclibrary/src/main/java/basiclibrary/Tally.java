@@ -19,7 +19,7 @@ public class Tally {
 
         return "hello";
     }
-
+ 
 
     public static void main(String[] args) {
         List<String> votes = new ArrayList<>();
