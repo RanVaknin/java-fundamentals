@@ -20,8 +20,8 @@ public class RollTest {
         Assert.assertEquals(expected,result);
 
         for(int i = 0; i < input; i++){
-            Assert.assertTrue("Error, roll is too high", high >= rangeArray[i]);
-            Assert.assertTrue("Error, roll is too low", low <= rangeArray[i]);
+            Assert.assertTrue("Error, roll is too high", high > rangeArray[i]);
+            Assert.assertTrue("Error, roll is too low", low < rangeArray[i]);
 
         }
     }
