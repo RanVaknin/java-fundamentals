@@ -1,5 +1,6 @@
 package basiclibrary;
 
+import java.nio.file.Path;
 import java.util.Arrays;
 
 public class Averages {
@@ -30,5 +31,6 @@ public class Averages {
         }
         return finalAvg;
     }
+
 
 }
