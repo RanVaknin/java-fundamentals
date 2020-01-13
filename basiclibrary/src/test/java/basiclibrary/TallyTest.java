@@ -4,7 +4,6 @@ import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class TallyTest {
 
@@ -30,16 +29,22 @@ public class TallyTest {
     @Test
     public void Testies2(){
         ArrayList<String> input = new ArrayList<>();
-        input.add("Bush");
-        input.add("Bush");
-        input.add("Shrub");
-        input.add("Shrub");
-        input.add("Zebra");
-        input.add("Zebra");
+        input.add("Arigato");
+        input.add("Arigato");
+        input.add("Roboto");
+        input.add("Roboto");
+        input.add("Domo");
 
-        String expected = "No winner";
+        String expected = "We have a tie between: Roboto & Arigato";
         String actual = Tally.tally(input);
         Assert.assertEquals(expected,actual);
+    }
 
+    @Test
+    public void testies3(){
+        ArrayList<String> input = new ArrayList<>();
+        String expected = "No Candidates!";
+        String actual = Tally.tally(input);
+        Assert.assertEquals(expected,actual);
     }
 }
