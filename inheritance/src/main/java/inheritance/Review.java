@@ -1,20 +1,27 @@
 package inheritance;
 
 public class Review {
-    String body;
-    String author;
-    double stars;
+    private String body;
+    private String author;
+    private double stars;
+    Reviewable reviewable;
 
-    public Review( String body, String author, double stars) {
-        if (this.stars > 5 || this.stars < 0){
+    public Review( String body, String author, double stars, Reviewable reviewable) {
+        if (stars > 5 || stars < 0){
             throw new RuntimeException("Ratings are between 0-5");
+        } else {
+            this.body = body;
+            this.author = author;
+            this.stars = stars;
+            reviewable.addReview(this);
+            this.reviewable = reviewable;
+
         }
-        this.body = body;
-        this.author = author;
-        this.stars = stars;
-
     }
+    public double getStars() {
 
+        return stars;
+    }
     public String toString(){
         return this.stars + " Stars.  " + this.body +"\n was written by: " + this.author +".";
     }
