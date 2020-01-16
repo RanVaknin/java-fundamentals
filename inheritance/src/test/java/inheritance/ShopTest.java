@@ -17,11 +17,11 @@ public class ShopTest {
     @Before
     public void setUp() throws Exception {
         shop = new Shop("Wallgreens","great spot", 0, 2);
-        review1 = new Review("Awesome", "2Pac", 1,shop);
-        review2 = new Review("Amazing", "Biggy", 2,shop);
-        review3 = new Review("Revolutionary", "Eminem", 3,shop);
-        review4 = new Review("Yay", "IceCube", 4,shop);
-        review5 = new Review("Badabadada", "Snoop Dogg", 5,shop);
+        review1 = new Review("Awesome", "2Pac", 1);
+        review2 = new Review("Amazing", "Biggy", 2);
+        review3 = new Review("Revolutionary", "Eminem", 3);
+        review4 = new Review("Yay", "IceCube", 4);
+        review5 = new Review("Badabadada", "Snoop Dogg", 5);
 
         shop.addReview(review1);
         shop.addReview(review2);
@@ -31,27 +31,21 @@ public class ShopTest {
     }
     @Test
     public void testToString() {
-        String expected ="Shop: name='Wallgreens', description='great spot', price_range=2, stars=3.0, reviews=[1.0 Stars.  Awesome\n" +
-                " was written by: 2Pac., 2.0 Stars.  Amazing\n" +
-                " was written by: Biggy., 3.0 Stars.  Revolutionary\n" +
-                " was written by: Eminem., 4.0 Stars.  Yay\n" +
-                " was written by: IceCube., 5.0 Stars.  Badabadada\n" +
-                " was written by: Snoop Dogg.]}";
+        //checking that I can add reviews to a list.
+        String expected ="Business: name='Wallgreens', description='great spot', price_range=0, stars=3.0}";
         String actual = shop.toString();
         Assert.assertEquals(expected,actual);
     }
 
     @Test
-    public void addReview() {
+    public void addReview_test() {
+        //checking the last added review.
+        Review review6 = new Review("Great shopkeeper","Luke Bryan",4.5);
+        shop.addReview(review6);
+        String expected = "4.5 Stars.  Great shopkeeper\n" +
+                " was written by: Luke Bryan.";
+        String actual = shop.getReviews().get(5).toString();
+        Assert.assertEquals(expected,actual);
+
     }
-
-    @Test
-    public void calculateAvg() {
-    }
-
-    @Test
-    public void getReviews() {
-    }
-
-
 }

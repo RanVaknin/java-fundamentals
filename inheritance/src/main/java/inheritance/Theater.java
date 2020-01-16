@@ -3,50 +3,28 @@ package inheritance;
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public class Theater implements Reviewable {
+public class Theater extends Business implements Reviewable {
     private String name;
+    private int price_range;
     private double stars;
+    private LinkedList<Review> reviews;
     private ArrayList<String> movies;
-    private LinkedList<TheaterReview> reviews;
 
-    public Theater(String name, double stars, ArrayList<String> movies) {
-        this.name = name;
-        this.stars = stars;
-        this.movies = movies;
+    public Theater(String name, int price_range, double stars) {
+        super(name, price_range, stars);
         this.reviews = new LinkedList<>();
+        this.movies = new ArrayList<>();
     }
-
 
     public void addMovie(String movieName) {
         this.movies.add(movieName);
     }
 
+    public ArrayList<String> getMovies(){
+        return this.movies;
+    }
+
     public void removeMovie(String movieName) {
         this.movies.remove(movieName);
-    }
-
-    @Override
-    public void addReview(Review review) {
-        if (!this.reviews.contains(review)) {
-            this.reviews.add((TheaterReview) review);
-            this.stars = calculateAvg(this.reviews);
-        } else {
-            throw new RuntimeException("Your review already exists in our system");
-        }
-    }
-
-    @Override
-    public double calculateAvg(LinkedList reviews) {
-        double avg = 0;
-        for (Review review : this.reviews) {
-            avg += review.getStars();
-        }
-        avg = avg / this.reviews.size();
-        return avg;
-    }
-
-    @Override
-    public LinkedList getReviews() {
-        return this.reviews;
     }
 }
