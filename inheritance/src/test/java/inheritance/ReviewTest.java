@@ -12,7 +12,7 @@ public class ReviewTest {
     @Before
     public void setUp() throws Exception {
         restaurant = new Restaurant("Hello",5,3);
-        input = new Review("The best pizza I have ever had on the West Coast.", "Ethan Stowell", 5,restaurant);
+        input = new Review("The best pizza I have ever had on the West Coast.", "Ethan Stowell", 5);
     }
 
     @Test

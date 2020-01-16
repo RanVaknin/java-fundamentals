@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public interface Reviewable {
 
     void addReview(Review review);
-    LinkedList getReviews();
-    double calculateAvg(LinkedList reviews);
+    LinkedList<Review> getReviews();
+    double calculateAvg(LinkedList<Review> reviews);
 
 }
