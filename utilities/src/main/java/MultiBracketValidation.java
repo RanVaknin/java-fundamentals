@@ -15,7 +15,9 @@ public class MultiBracketValidation {
             if (ch == ')' || ch == ']' || ch == '}') {
                 if (stack.isEmpty()) {
                     return false;
-                } else if ((ch == ')' && stack.peek() == '(') || (ch == '[' && stack.peek() == ']') || (ch == '{' && stack.peek() == '}')) {
+                } else if ( (ch == ')' && stack.peek() == '(')
+                        ||  (ch == ']' && stack.peek() == '[')
+                        ||  (ch == '}' && stack.peek() == '{') ) {
                     stack.pop();
                 }
             }
@@ -23,10 +25,5 @@ public class MultiBracketValidation {
         return (stack.isEmpty());
     }
 
-
-    public static void main(String[] args) {
-        MultiBracketValidation demo = new MultiBracketValidation();
-        System.out.println(demo.validateBrackets("{([])}"));
-    }
 }
 
